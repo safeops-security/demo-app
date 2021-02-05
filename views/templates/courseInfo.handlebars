@@ -1,0 +1,119 @@
+<link rel = "stylesheet" href = "/public/style.css">
+{{> navigationBarPartial}}
+  <div class="page-container">
+  <div class="page-content">
+    <div class="coursepage">
+      <h2>{{course.courseName}}</h2>
+      <h3>{{course.courseCode}}</h3>
+      <p>Credits: {{course.credits}}</p>
+      <p>Semester Held: {{course.semester}}</p>
+      <p>Level: {{course.classLevel}}</p>
+      <p>Web Section: {{course.webSection}}</p>
+      <div class="professors">
+        <p>Professors: {{!-- {{#each course.professors}}{{this}}{{/each}} --}}</p>
+        {{!-- <table class="table" id="professor">
+          {{#each course.professors}}
+          <tr>
+            <td><a target="_blank" href="">{{this}}</a></td>
+          </tr>
+          {{/each}}
+        </table> --}}
+        <ul>
+          {{#each course.professors}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="description">
+        <p>{{course.description}}</p>
+      </div>
+      <div class="reviews">
+        <h2 id="ratings">Reviews</h2>
+        {{#if rating}}
+        <h4>Average Rating: {{course.avgRating}}</h3>
+        {{else}}
+        <h4>Average Rating: N/A</h4>
+        {{/if}}
+        <div class="allTags">
+          {{#each alltags}}
+            <div class="tag">
+              <p>{{this}}</p>
+            </div>
+          {{/each}}
+        </div>
+        {{#each review}}
+        <div class="indivReview" id="{{this._id}}">
+          {{#if this.review}}
+          <p>Review posted by {{this.authorName}} on {{this.datePosted}}</p>
+          {{else}}
+          <p>Rating by {{this.authorName}} on {{this.datePosted}}</p>
+          {{/if}}
+          <p>Class taken with Professor {{this.professor}}</p>
+          <div class="tags">
+          <p>Tags: </p>
+          {{#if this.tags}}
+            {{#each this.tags}}
+            <div class="tag">
+              <p>{{this}}</p>
+            </div>
+            {{/each}}
+          {{else}}
+          <p>N/A</p>
+          {{/if}}
+          </div>
+          <p>Rating: {{this.rating}}</p>
+          {{#if this.review}}
+          <p class="rev">Review: {{this.review}}</p>
+          {{!-- <p class="rev"></p> --}}
+          {{/if}}
+          <div class="comments" data-id="{{this._id}}">
+            {{#if this.comments}}
+              <p class="comment-title" data-id="{{this._id}}">Comments: </p>
+            {{/if}}
+            {{#each this.comments}}
+              {{> commentsPartials }}
+            {{/each}}
+          </div>
+          <div class="comment-box" data-id="{{this._id}}">
+          <form class="comment-form" data-id="{{this._id}}">
+            <input class="new-comment" data-id="{{this._id}}" type="text" name="comment" value="{{com}}">
+            {{!-- <textarea class="tarea" data-id="{{this._id}}" name="comment" value="{{com}}"></textarea> --}}
+            <button type="submit" data-id="{{this._id}}">Post</button>
+            <button type="button" class="cancel" data-id="{{this._id}}">Cancel</button>
+          </form>
+          </div>
+          {{#if @root.verified}}
+          <button class="reply" data-id="{{this._id}}" data-logged="true">Leave a reply</button>
+          {{else}}
+          <button class="reply" data-id="{{this._id}}" data-logged="false">Leave a reply</button>
+          {{/if}}
+        </div>
+        {{/each}}
+        <p><a href = "/review/course/{{course.courseCode}}">Leave a review</a></p>
+      </div>
+    </div>
+  </div>
+  </div>
+{{> constScriptsPartial}}
+<script src="/public/AjaxComment.js"></script>
+{{!-- <script>
+  $(document).ready(function(){
+    $("[class^='comment-box']").hide()
+    $("button[class^='reply']").click(function(){
+      var c = $(this).attr("data-id");
+      $("[class^='comment-box']").hide();
+      $("button[class^='reply']").show();
+      $("[class^='comment-box']").filter("[data-id="+c+"]").show();
+      $(this).hide();
+    });
+    $("[class^='cancel']").click(function(){
+      var c = $(this).attr("data-id");
+      $("[class^='comment-box']").filter("[data-id="+c+"]").hide();
+      $("[class^='reply']").filter("[data-id="+c+"]").show();
+    });
+    $("[class^='comment-form']").submit(function(event){
+      event.preventDefault();
+    });
+  });
+</script> --}}
+{{> footerPartial}}

@@ -1,0 +1,253 @@
+/* .page-container {
+  position: relative;
+} */
+
+footer{
+  bottom: unset;
+  margin-top: -30px;
+  height: 50px;
+}
+
+#account {
+  display: inline-block;
+  border-style: solid;
+  background: #F2F2F3;
+  padding: 20px;
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.table {
+    background: white;
+    border-radius: 5px;
+    width: 50%;
+    margin: 0px auto;
+    float: none;
+}
+
+thead {
+  text-align: center;
+}
+
+.allTags {
+  margin-top:20px;
+}
+
+/* Styling for /templates/courseInfo */
+.coursepage {
+  display: inline-block;
+  border-style: solid;
+  padding: 20px;
+  width: 65%;
+  margin-bottom: 20px;
+  background: #F2F2F3;
+  border-radius: 10px;
+}
+
+.coursepage p {
+  font-size: 20px;
+}
+
+.coursepage ul {
+  font-size: 18px;
+}
+
+div.professors{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  width:fit-content;
+  /* line-height: 1; */
+}
+
+div.professors>ul {
+  padding:0;
+  list-style: none;
+}
+
+div.description{
+  text-align:center;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  width: 85%;
+  /* padding: 0px 25px; */
+}
+
+#professor{
+  width:fit-content;
+  border:black 2px solid;
+}
+
+.indivReview{
+  background: white;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border:gray 1px solid;
+  border-radius: 5px;
+  text-align: left;
+  padding: 15px;
+  line-height: 1;
+  margin-top: 20px;
+  margin-bottom: 10px
+}
+
+.indivReview p {
+  font-size: 16px;
+}
+
+.tags p{
+  display: inline-block;
+}
+
+.tag {
+  display: inline-block;
+  background: lightgray;
+  border-radius:2px;
+  width: fit-content;
+  margin-bottom: 1rem;
+  margin-left: 5px;
+  padding: 4px 8px;
+}
+
+.tag p {
+  margin:1px;
+  font-size: 14px;
+}
+
+#reply {
+  text-align: right;
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+.rev {
+  /* margin-bottom:10px; */
+  line-height: 1.4em;
+}
+
+form.option {
+  display: inline-block;
+}
+
+#ratings-form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  background: #F2F2F3;
+  padding: 20px;
+  width: 60%;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+#ratings-form select {
+  margin-left: 5px;
+  font-size: 16px;
+  width: fit-content;
+}
+
+#ratings-form input[type=checkbox] {
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+#coursecodeInput, #ratingInput {
+  display: inline-block;
+  width: 110px;
+  margin-left: 5px;
+  /* margin-right: auto; */
+}
+
+textarea#commentLabel {
+  width: 90%;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.table#review-tags{
+  width:80%;
+  border-radius: 10px;
+}
+
+#review-tags td, #review-tags tr{
+  padding: 10px;
+  /* border-top: ; */
+  border-right: 1px solid lightgrey;
+  /* border:gray 1px solid; */
+  /* border-radius: 10px; */
+}
+
+#review-tags label {
+  margin-bottom: 0;
+}
+
+#review-tags td:nth-child(1) {
+  padding-left:20px;
+  padding-right:20px;
+  vertical-align: middle;
+}
+
+#review-tags td:nth-child(2){
+  font-size: 17px;
+}
+
+.checkin {
+  display:inline-block;
+}
+
+
+div.comments > p {
+  border-top: black 1px dotted;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+div.singleComment {
+  border-bottom: lightgray 1px solid;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+div.singleComment p {
+  margin:0;
+}
+
+div.indivReview button {
+  padding: 4px 8px 8px 8px;
+}
+
+div.comment-box button {
+  padding: 4px 8px 6px 8px;
+}
+
+div.comment-box {
+  margin-top: 1rem;
+}
+
+div.col {
+  background-color: white;
+  border-radius: 10px;
+  display: inline-block;
+  border: black solid;
+  width: 300px;
+  padding: 20px;
+}
+
+div.col p{
+  margin:0
+}
+
+div.ratedrow {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+div.empty {
+  width: 70px;
+  display: inline-block;
+}

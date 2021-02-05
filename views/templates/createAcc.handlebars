@@ -1,0 +1,69 @@
+{{!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "/public/main.css"> --}}
+    <link rel = "stylesheet" href = "/public/style.css">
+{{> navigationBarPartial}}
+    <div class="page-container">
+  <div class="page-content">
+    <h1>Create an Account</h1>
+    {{#if hasErrors}}
+    <p>Error: Account already registered under this email</p>
+    {{/if}}
+    <form method = "POST" id = "account" action="/login/newAccount">
+        <div class = "firstName">
+            <label for = "fName">First name</label>
+            <input type = "text" class = "form-control" id = "fName" name = "firstName" required>
+        </div>
+        <div class = "lastName">
+            <label for = "lName">Last name</label>
+            <input type = "text" class = "form-control" id = "lName" name = "lastName" required>
+        </div>
+        <div class="email">
+            <label for="email1">Email address</label>
+            <input type="email" class="form-control" id="email1" name = "emailInput" placeholder="name@example.com" required>
+        </div>
+        <div class="password">
+            {{!-- <div class="input-group input-group-lg"> --}}
+            {{!-- <div class="form-group form-group-lg"> --}}
+            <label for="passwordInput1">Password</label>
+            <input type="password" class="form-control" id="passwordInput1" name = "passwordInput" placeholder="Password" required>
+      {{!-- </div> --}}
+        {{!-- </div> --}}
+        </div>
+    <div class="gender">
+            <label for="ChooseGender">Gender</label>
+            <select class="form-control" id="ChooseGender" name = "Gender" required>
+                <option disabled selected value=""></option>
+                <option value = "Male">Male</option>
+                <option value = "Female">Female</option>
+                <option value = "Other">Other</option>
+            </select>
+    </div>
+    <div class = "age">
+        <label for = "agelabel">Age</label>
+        <input type = "number" class = "form-control" id = "agelabel" name = "ageInput" required>
+    </div>
+    <div class="year">
+        <label for="yearInput1">Year</label>
+        <select class="form-control" id="yearInput1" name = "yearInput" required>
+            <option disabled selected value=""> </option>
+            <option>First Year</option>
+            <option>Second Year</option>
+            <option>Third Year</option>
+            <option>Fourth Year</option>
+            <option>Fifth Year</option>
+            <option>Graduate</option>
+        </select>
+  </div>
+        <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    <p>Already have an account?<a href = "/login"> Click here!</a></p>
+    </div>
+    </div>
+{{> constScriptsPartial}}
+{{> footerPartial}}

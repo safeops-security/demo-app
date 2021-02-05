@@ -1,0 +1,103 @@
+<link rel = "stylesheet" href = "/public/style.css">
+{{> navigationBarPartial}}
+<div class="page-container">
+<div class="page-content">
+<div id ="profilePage">
+  <h1>My Profile</h1>
+  <h3>{{user.firstName}} {{user.lastName}}</h3>
+  <table class="profile-table" id="profile">
+    <tbody>
+      <tr>
+        <td>Email:</td>
+        <td>{{user.email}}</td>
+      </tr>
+      <tr>
+        <td>Gender:</td>
+        <td>{{user.gender}}</td>
+      </tr>
+      <tr>
+        <td>Year:</td>
+        <td>{{user.year}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="review">
+    <h3>My Reviews</h3>
+    {{#if noratings}}
+    <p>No reviews</p>
+    {{else}}
+    <table class="profile-table">
+      <thead>
+            <tr>
+                <th id="dp">Date Posted</th>
+                <th id="cc">Course Code</th>
+                <th id="rate">Rating</th>
+                <th>Review</th>
+                <th id="opt" colspan ="2">Options</th>
+            </tr>
+        </thead>
+        {{#each ratings}}
+        <tbody>
+            <tr>
+                <td>{{this.datePosted}}</td>
+                <td>{{this.courseCode}}</td>
+                <td>{{this.rating}}</td>
+                <td><a href = "/courses/code/{{this.courseCode}}#{{this._id}}">View review</a></td>
+                <td>
+                  <form method="POST" action="/review/delete/{{this._id}}" class="option" onsubmit="return confirm('Do you really want to delete this review?');">
+                    {{!-- <input type="text" hidden name="code" value="{{this.courseCode}}"> --}}
+                    <button type="submit" name="delete" value="delete">Delete</button>
+                  </form>
+                </td>
+                <td>
+                  <form method="POST" action="/review/edit-form/{{this._id}}" class="option">
+                    {{!-- <input type="text" hidden name="code" value="{{this.courseCode}}"> --}}
+                    <button type="submit" name="edit" value="edit">Edit</button>
+                  </form>
+                </td>
+                {{!-- <td><a href="">Delete</a> | <a href="">Edit</a></td> --}}
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+    {{/if}}
+  </div>
+  <div class="comments-profile">
+    <h3>My Comments</h3>
+    {{#if nocomments}}
+    <p>No comments</p>
+    {{else}}
+    <table class="profile-table">
+      <thead>
+            <tr>
+                <th>Date Posted</th>
+                <th>Course Code</th>
+                <th>Comment</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        {{#each comments}}
+        <tbody>
+            <tr>
+                <td>{{this.datePosted}}</td>
+                <td>{{this.courseCode}}</td>
+                <td><a href = "/courses/code/{{this.courseCode}}#{{this._id}}">View comment</a></td>
+                <td>
+                  <form method="POST" action="/review/delete-comment/{{this._id}}" class="option" onsubmit="return confirm('Do you really want to delete this comment?');">
+                    {{!-- <input type="text" hidden name="code" value="{{this.courseCode}}"> --}}
+                    <button type="submit" name="deleteComment" value="delete">Delete</button>
+                  </form>
+                </td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+    {{/if}}
+  </div>
+  <a href = "/logout">Logout!</a>
+</div>
+</div>
+</div>
+{{> constScriptsPartial}}
+{{> footerPartial}}
+<script src="tota11y.min.js"></script>

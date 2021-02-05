@@ -1,0 +1,30 @@
+<div class = "ratedrow">
+  <div class = "col">
+<form action="/review" method="GET" name = "topRated2" enctype="application/x-www-form-urlencoded">
+  <h4>Top Rated Course</h4>
+  <dt>Course Code:</dt>
+   <dd> {{ratings.courseCode}} </dd>
+   <dt>Date Posted:</dt>
+   <dd>{{ratings.datePosted}} </dd>
+   <dt>Rating:</dt>
+   <dd>{{ratings.rating}}</dd>
+    <p><a href = "/courses/code/{{ratings.courseCode}}">See Course Data</a></p>
+</form>
+</div>
+<div class="empty">
+  
+</div>
+
+<div class = "col">
+<form action="/review" method="GET" name = "topRated2" enctype="application/x-www-form-urlencoded">
+<h4>Most Recent Review</h4>
+<dt>Course Code:</dt>
+   <dd> {{recent.courseCode}} </dd>
+   <dt>Date Posted:</dt>
+   <dd>{{recent.datePosted}} </dd>
+   <dt>Rating:</dt>
+   <dd>{{recent.rating}}</dd>
+   <p><a href = "/courses/code/{{recent.courseCode}}">See Course Data</a></p>
+</form>
+</div>
+</div>
