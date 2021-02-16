@@ -1,0 +1,18 @@
+version: '3'
+volumes:
+  dbdata:
+services:
+  db_demo_app:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+  demo_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: safeops/demo_app:local
+    ports:
+      - "9300:3000"
+    depends_on:
+      - db_demo_app
