@@ -102,7 +102,7 @@ pipeline {
                     steps {
                         script {
                             echo "Deploying k8s artifacts"
-                            sh "kubectl apply -f k8s/*"
+                            sh "kubectl apply -f k8s"
                         }
                     }
                 }
