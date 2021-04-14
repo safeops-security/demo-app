@@ -1,5 +1,9 @@
 FROM node:14
 
+ARG PASSWORD
+
+$PASSWORD="somepassword"
+
 RUN mkdir -p /opt/app
 COPY . /opt/app
 
