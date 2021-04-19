@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: 350473869200.dkr.ecr.us-east-1.amazonaws.com/demo-app:prod
+          image: opsline/demo-app:latest
           ports:
             - containerPort: 3000
