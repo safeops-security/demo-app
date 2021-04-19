@@ -66,6 +66,13 @@ pipeline {
             }
         }
 
+        stage('SafeOps') {
+            steps{
+                sh 'python3 -m pip install safeops-cli --user -U'
+                sh 'safeops start-scans -a {api_key}'
+                sh 'safeops get-results -a {api_key}'
+            }
+
         stage('Build Docker Images') {
             when {
                 anyOf {
