@@ -70,7 +70,7 @@ pipeline {
 
         stage('SafeOps') {
             steps{
-                sh 'python3 -m pip install safeops-cli --install-option="--install-scripts=/usr/bin"'
+                sh 'python3 -m pip install --upgrade --force-reinstall safeops-cli'
                 sh '/root/.local/bin/safeops start-scans -s cloud -s repos -a ${API_KEY}'
                 sh '/root/.local/bin/safeops get-results -a ${API_KEY}'
             }
