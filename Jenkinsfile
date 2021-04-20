@@ -72,6 +72,7 @@ pipeline {
                 sh 'safeops start-scans -a {api_key}'
                 sh 'safeops get-results -a {api_key}'
             }
+        }
 
         stage('Build Docker Images') {
             when {
