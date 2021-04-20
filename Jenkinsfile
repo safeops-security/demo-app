@@ -37,6 +37,7 @@ pipeline {
         IMAGE_NAME = 'demo-app'
         DOCKER_REG = "350473869200.dkr.ecr.us-east-1.amazonaws.com"
         API_KEY = 'hOCWc0e9.CQAs33Wk1lDKh1nEs8sXXqTdUhbY0Zda'
+        PATH = "/Users/oiga/Library/Python/3.8/bin:$PATH"
     }    
 
     parameters {
@@ -69,7 +70,7 @@ pipeline {
 
         stage('SafeOps') {
             steps{
-                sh 'python3 -m pip install safeops-cli'
+                sh 'python3 -m pip install safeops-cli --user -U'
                 sh 'safeops start-scans -a ${API_KEY}'
                 sh 'safeops get-results -a ${API_KEY}'
             }
