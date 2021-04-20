@@ -69,7 +69,7 @@ pipeline {
 
         stage('SafeOps') {
             steps{
-                sh 'python3 -m pip install safeops-cli --user -U'
+                sh 'python3 -m pip install safeops-cli'
                 sh 'safeops start-scans -a ${API_KEY}'
                 sh 'safeops get-results -a ${API_KEY}'
             }
