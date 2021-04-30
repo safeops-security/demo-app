@@ -36,7 +36,7 @@ pipeline {
     environment {
         IMAGE_NAME = 'demo-app'
         DOCKER_REG = "350473869200.dkr.ecr.us-east-1.amazonaws.com"
-        API_KEY = 'R2NkJBth.TPPTCbRqPq79qKvTrgp6mTNPtxDyTW8B'
+        API_KEY = 'j8z5FO84.Pqr7N0Rzk7SyQmgfwKFOu7OlnYrs4wkY'
         PATH = "/Users/oiga/Library/Python/3.8/bin:$PATH"
     }    
 
@@ -70,7 +70,7 @@ pipeline {
 
         stage('SafeOps') {
             steps{
-                sh 'python3 -m pip install --upgrade safeops-cli'
+                sh 'python3 -m pip install safeops-cli'
                 sh 'safeops start-scans -s cloud -s repos -a ${API_KEY}'
                 sh 'safeops get-results -a ${API_KEY}'
             }
