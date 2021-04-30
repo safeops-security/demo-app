@@ -36,7 +36,7 @@ pipeline {
     environment {
         IMAGE_NAME = 'demo-app'
         DOCKER_REG = "350473869200.dkr.ecr.us-east-1.amazonaws.com"
-        API_KEY = 'j8z5FO84.Pqr7N0Rzk7SyQmgfwKFOu7OlnYrs4wkY'
+        API_KEY = 'ax7zERbf.sfgDjNPqJGwQgeICOOaI1JFsHE34cpV0'
         PATH = "/Users/oiga/Library/Python/3.8/bin:$PATH"
     }    
 
