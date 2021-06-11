@@ -92,7 +92,7 @@ router.get("/code/:code", async(req, res) => {
 router.delete("/:id", async(req, res) => {
   try{
     const courseId = xss(req.params.id);
-    const remove = await courseData.removeCourse(courseId);
+    await courseData.removeCourse(courseId);
   }
   catch(e){
     res.status(400);
